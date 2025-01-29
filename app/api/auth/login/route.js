@@ -1,4 +1,4 @@
-import connectToDatabase from "@/lib/mongodb";
+import connectDB from "@/lib/mongodb";
 import User from "@/models/User";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
@@ -16,7 +16,7 @@ export async function POST(req) {
   }
 
   try {
-    await connectToDatabase();
+    await connectDB();
 
     const user = await User.findOne({ email });
     if (!user) {
