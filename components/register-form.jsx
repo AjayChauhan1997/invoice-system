@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 
-export function LoginForm({ className, ...props }) {
+export function RegisterForm({ className, ...props }) {
   const [loading, setLoading] = useState(false); // State to manage loading status
   const [error, setError] = useState(""); // State to handle API errors
 
@@ -18,7 +18,7 @@ export function LoginForm({ className, ...props }) {
     const password = e.target.password.value;
 
     try {
-      const response = await fetch("/api/auth/login", {
+      const response = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -47,9 +47,9 @@ export function LoginForm({ className, ...props }) {
       {...props}
     >
       <div className="flex flex-col items-center gap-2 text-center">
-        <h1 className="text-2xl font-bold">Login to your account</h1>
+        <h1 className="text-2xl font-bold">Create a new account</h1>
         <p className="text-balance text-sm text-muted-foreground">
-          Enter your email below to login to your account
+          Enter your credentials below to create your account
         </p>
       </div>
       <div className="grid gap-6">
